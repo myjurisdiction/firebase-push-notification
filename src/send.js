@@ -8,8 +8,10 @@ admin.initializeApp({
   databaseURL: "https://adroit-marking-277810.firebaseio.com",
 });
 
-const resgistrationToken =
-  "Enter registration token of the device (emulator or any device which is bein debugged) here which you will get from the log console";
+// in case you have multiple tokens then you can use array as well.
+const resgistrationToken = [
+  "Enter registration token of the device (emulator or any device which is bein debugged) here which you will get from the log console",
+];
 
 const payload = {
   data: {
