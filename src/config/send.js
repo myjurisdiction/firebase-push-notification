@@ -5,18 +5,19 @@ const serviceAccount = require(path.join(__dirname, "serviceAccountKey.json"));
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://adroit-marking-277810.firebaseio.com",
+  databaseURL: "https://mobitrak-be1c7.firebaseio.com",
 });
 
-// in case you have multiple tokens then you can use array as well.
-const resgistrationToken = [
-  "Enter registration token of the device (emulator or any device which is bein debugged) here which you will get from the log console",
-];
+// const serviceAccount = require(path.join(__dirname, "serviceAccountKey.json"));
 
-const payload = {
-  data: {
-    title: "Hello user.",
-    content: "This is an example of a push notification",
+// in case you have multiple tokens then you can use array as well.
+const resgistrationToken =
+  "ejkP5N3TRreAg2IopXBb19:APA91bGCTjyJ5GQcxnr4olbGDnP1f8jMeW2GbY-Z-PvbnC4X2OilmelLOCFiOaArvebASdjbBNxKPyXzsQCc93FYH-NNij--M6TtBd156f5Iii9bQ30OHqLSsE-8zkSxkkBV7nnut_vD";
+
+const message = {
+  notification: {
+    title: "Quote",
+    body: "Success loves prepration.",
   },
 };
 
@@ -27,7 +28,7 @@ const options = {
 
 admin
   .messaging()
-  .sendToDevice(resgistrationToken, payload, options)
+  .sendToDevice(resgistrationToken, message, options)
   .then((response) => console.log("sent successfully.", response))
   .catch((error) =>
     console.log(
